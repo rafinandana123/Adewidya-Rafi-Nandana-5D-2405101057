@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spesifikasi, harga, dan estimasi biaya kepemilikan mobil.">
+    <title>Detail Mobil | CarFit</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar" id="siteNav"></header>
+
+    <main>
+        <div id="detailRoot">
+            <section class="detail-header">
+                <div class="container">
+                    <div class="breadcrumb">
+                        <a href="catalog.html">Katalog Mobil</a>
+                        <span>/</span>
+                        <span id="breadcrumbCar">Detail Mobil</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="detail-section">
+                <div class="container">
+                    <div class="detail-layout">
+                        <div class="detail-image">
+                            <div class="detail-image-placeholder" id="detailImage"></div>
+                        </div>
+
+                        <div class="detail-info">
+                            <span class="detail-brand" id="detailBrand"></span>
+                            <h1 id="detailName"></h1>
+                            <p class="detail-meta" id="detailMeta"></p>
+                            <div class="detail-price" id="detailPrice"></div>
+                            <p class="detail-description" id="detailDescription"></p>
+
+                            <p class="notice notice-warn" id="inactiveNote" hidden>Mobil ini sudah dinonaktifkan dan tidak tersedia untuk analisis baru.</p>
+
+                            <div class="detail-actions">
+                                <a href="analysis.html" class="btn btn-primary" id="detailAnalysis">Analisis Mobil Ini</a>
+                                <a href="analysis.html#simulasi" class="btn btn-secondary" id="detailSim">Simulasi Pembelian</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section class="specification-section">
+                        <div class="section-heading">
+                            <span class="section-label">Informasi Kendaraan</span>
+                            <h2>Spesifikasi Mobil</h2>
+                        </div>
+                        <div class="specification-grid" id="specGrid"></div>
+                    </section>
+
+                    <section class="ownership-section">
+                        <div class="section-heading">
+                            <span class="section-label">Biaya Kepemilikan</span>
+                            <h2>Estimasi biaya per bulan</h2>
+                            <p>Ubah jarak tempuh untuk melihat estimasi biaya energi.</p>
+
+                            <div class="dist-row">
+                                <label for="distInput">Jarak tempuh per bulan</label>
+                                <div class="input-unit">
+                                    <input type="number" id="distInput" min="0" step="1">
+                                    <span>km</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ownership-grid" id="ownershipGrid"></div>
+                        <p class="ownership-total" id="ownershipTotal"></p>
+                    </section>
+
+                    <section class="detail-cta">
+                        <div class="quick-action">
+                            <div>
+                                <span class="section-label">Langkah Berikutnya</span>
+                                <h2>Apakah mobil ini sesuai kemampuanmu?</h2>
+                                <p>Masukkan kondisi keuangan dan metode pembelian untuk mendapatkan hasil berdasarkan aturan CarFit.</p>
+                            </div>
+                            <a href="analysis.html" class="btn btn-primary" id="detailAnalysisBottom">Mulai Analisis</a>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" id="siteFooter"></footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CarFit</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-access="user">
+    <header class="navbar" id="siteNav"></header>
+
+    <main>
+        <section class="dashboard-header">
+            <div class="container">
+                <div class="dashboard-welcome">
+                    <div>
+                        <span class="section-label">Dashboard CarFit</span>
+                        <h1 id="dashHello">Halo</h1>
+                        <p>Ringkasan profil, kondisi finansial, rekomendasi, dan riwayat analisis akun Anda.</p>
+                    </div>
+                    <a href="profile.html" class="btn btn-primary">Edit Profil Finansial</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="container">
+                <div id="dashProfile"></div>
+
+                <div class="section-heading">
+                    <span class="section-label">Kondisi Keuangan</span>
+                    <h2>Ringkasan Finansial</h2>
+                </div>
+
+                <div class="finance-summary" id="dashFinance"></div>
+                <p class="dashboard-note" id="dashNote"></p>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-label">Rekomendasi</span>
+                    <h2>Mobil yang sesuai kemampuan Anda</h2>
+                    <p>Dinilai dengan aturan yang sama seperti halaman analisis.</p>
+                </div>
+
+                <div id="dashReco"></div>
+                <div class="reco-grid" id="dashAlts"></div>
+
+                <p>
+                    <a class="btn btn-secondary" href="recommendations.html">Lihat Semua Rekomendasi &amp; Bandingkan</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="container">
+                <div class="quick-action">
+                    <div>
+                        <span class="section-label">Analisis</span>
+                        <h2>Ingin mengecek mobil tertentu?</h2>
+                        <p>Pilih mobil, metode pembelian, DP, dan tenor untuk melihat hasilnya.</p>
+                    </div>
+                    <a href="analysis.html" class="btn btn-primary">Mulai Analisis</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-label">Riwayat</span>
+                    <h2>Riwayat Analisis (<span id="dashHistoryCount">0</span>)</h2>
+                </div>
+
+                <div class="alt-list" id="dashHistory"></div>
+
+                <p>
+                    <a class="btn btn-secondary" href="history.html">Semua Riwayat</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="siteFooter"></footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

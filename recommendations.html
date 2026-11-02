@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekomendasi Mobil | CarFit</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-access="user">
+    <header class="navbar" id="siteNav"></header>
+
+    <main>
+        <section class="dashboard-header">
+            <div class="container">
+                <span class="section-label">Rekomendasi</span>
+                <h1>Rekomendasi Mobil untuk Anda</h1>
+                <p id="recoBasis">Mobil aktif dinilai dengan profil finansial Anda.</p>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <div class="container">
+                <div class="reco-toolbar">
+                    <label for="recoFilter">Tampilkan</label>
+                    <select id="recoFilter">
+                        <option value="">Semua status</option>
+                        <option value="SESUAI">Sesuai</option>
+                        <option value="PERLU PERTIMBANGAN">Perlu Pertimbangan</option>
+                        <option value="BELUM SESUAI">Belum Sesuai</option>
+                    </select>
+
+                    <button type="button" class="btn btn-primary" id="compareBtn" disabled>Bandingkan (pilih 2–3)</button>
+                </div>
+
+                <div id="compareBox" class="result-block" hidden></div>
+                <div class="reco-list" id="recoList"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="siteFooter"></footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

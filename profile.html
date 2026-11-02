@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil | CarFit</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-access="user">
+    <header class="navbar" id="siteNav"></header>
+
+    <main>
+        <section class="profile-header">
+            <div class="container">
+                <span class="section-label">Profil</span>
+                <h1>Akun dan Kondisi Keuangan</h1>
+                <p>Data finansial dipakai untuk menghitung kemampuan membeli dan memiliki mobil. Data hanya milik akun Anda.</p>
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <div class="container">
+                <div class="profile-form">
+                    <form class="form-card" id="accountForm" novalidate>
+                        <div class="form-card-header">
+                            <span class="form-number">A</span>
+                            <div>
+                                <h2>Data Akun</h2>
+                                <p>Nama, email, dan nomor HP.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">Nama Lengkap</label>
+                                <input id="name" name="name" type="text" required autocomplete="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" required autocomplete="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Nomor HP</label>
+                                <input id="phone" name="phone" type="tel" required autocomplete="tel">
+                                <small>Contoh: 081234567890</small>
+                            </div>
+                        </div>
+
+                        <p class="auth-message" id="accountMessage" role="status" aria-live="polite"></p>
+
+                        <div class="profile-actions">
+                            <button type="submit" class="btn btn-primary">Simpan Data Akun</button>
+                        </div>
+                    </form>
+
+                    <form class="form-card" id="profileForm" novalidate>
+                        <div class="form-card-header">
+                            <span class="form-number">B</span>
+                            <div>
+                                <h2>Profil Finansial</h2>
+                                <p>Kondisi keuangan bulanan dan rencana pembelian.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="income">Penghasilan Bersih / Bulan (Rp)</label>
+                                <input id="income" name="income" type="number" min="1" step="1" required>
+                                <small>Setelah pajak dan potongan.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="expenses">Pengeluaran Rutin / Bulan (Rp)</label>
+                                <input id="expenses" name="expenses" type="number" min="0" step="1" required>
+                                <small>Makan, tempat tinggal, transportasi, dll.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="installments">Cicilan Aktif / Bulan (Rp)</label>
+                                <input id="installments" name="installments" type="number" min="0" step="1" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="savings">Tabungan Saat Ini (Rp)</label>
+                                <input id="savings" name="savings" type="number" min="0" step="1" required>
+                                <small>Tersedia untuk DP atau pembelian tunai.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dependents">Jumlah Tanggungan</label>
+                                <input id="dependents" name="dependents" type="number" min="0" step="1">
+                                <small>Informasi pendukung, tidak memengaruhi status.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="distance">Jarak Tempuh / Bulan</label>
+                                <div class="input-unit">
+                                    <input type="number" id="distance" name="distance" min="1" step="1" required>
+                                    <span>km</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-full">
+                                <label>Tujuan Penggunaan Mobil</label>
+                                <div class="option-grid">
+                                    <label class="option-card">
+                                        <input type="radio" name="purpose" value="kerja">
+                                        <span class="option-content">
+                                            <strong>Kerja</strong>
+                                            <small>Perjalanan kerja. Batas beban 30%.</small>
+                                        </span>
+                                    </label>
+
+                                    <label class="option-card">
+                                        <input type="radio" name="purpose" value="keluarga">
+                                        <span class="option-content">
+                                            <strong>Keluarga</strong>
+                                            <small>Kebutuhan keluarga. Batas beban mobil 50% dari penghasilan.</small>
+                                        </span>
+                                    </label>
+
+                                    <label class="option-card">
+                                        <input type="radio" name="purpose" value="usaha">
+                                        <span class="option-content">
+                                            <strong>Usaha</strong>
+                                            <small>Mendukung usaha. Batas beban mobil 45% dari penghasilan.</small>
+                                        </span>
+                                    </label>
+
+                                    <label class="option-card">
+                                        <input type="radio" name="purpose" value="hobi">
+                                        <span class="option-content">
+                                            <strong>Hobi / Sekunder</strong>
+                                            <small>Non-rutin. Batas 10%.</small>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-full">
+                                <label>Metode Pembelian</label>
+                                <div class="option-grid option-grid-small">
+                                    <label class="option-card">
+                                        <input type="radio" name="purchase_method" value="cash">
+                                        <span class="option-content">
+                                            <strong>Tunai</strong>
+                                            <small>Bayar penuh dari tabungan.</small>
+                                        </span>
+                                    </label>
+
+                                    <label class="option-card">
+                                        <input type="radio" name="purchase_method" value="credit">
+                                        <span class="option-content">
+                                            <strong>Kredit</strong>
+                                            <small>DP dan cicilan bulanan.</small>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="credit-options" id="creditOptions" hidden>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="down_payment">Uang Muka (DP, Rp)</label>
+                                    <input id="down_payment" name="down_payment" type="number" min="0" step="1">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tenor">Tenor Kredit</label>
+                                    <div class="input-unit">
+                                        <input type="number" id="tenor" name="tenor" min="12" max="84" step="1">
+                                        <span>bulan</span>
+                                    </div>
+                                    <small>12–84 bulan, bunga sederhana 8% per tahun.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="auth-message" id="profileMessage" role="status" aria-live="polite"></p>
+
+                        <div class="profile-actions">
+                            <button type="submit" class="btn btn-primary">Simpan Profil Finansial</button>
+                        </div>
+                    </form>
+
+                    <form class="form-card" id="passwordForm" novalidate>
+                        <div class="form-card-header">
+                            <span class="form-number">C</span>
+                            <div>
+                                <h2>Ganti Kata Sandi</h2>
+                                <p>Simulasi frontend; kata sandi hanya disimpan sebagai hash demo.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="current">Kata Sandi Saat Ini</label>
+                                <input id="current" name="current" type="password" autocomplete="current-password" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="newpw">Kata Sandi Baru</label>
+                                <input id="newpw" name="newpw" type="password" autocomplete="new-password" required>
+                                <small>Minimal 6 karakter, huruf dan angka.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm">Konfirmasi Kata Sandi Baru</label>
+                                <input id="confirm" name="confirm" type="password" autocomplete="new-password" required>
+                            </div>
+                        </div>
+
+                        <p class="auth-message" id="passwordMessage" role="status" aria-live="polite"></p>
+
+                        <div class="profile-actions">
+                            <button type="submit" class="btn btn-primary">Ganti Kata Sandi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="siteFooter"></footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
