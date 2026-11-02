@@ -55,12 +55,6 @@ Aplikasi dikembangkan menggunakan HTML, CSS, dan JavaScript dengan penyimpanan d
 3. Buka file `index.html` menggunakan browser.
 4. Alternatifnya, buka folder proyek menggunakan Visual Studio Code dan jalankan dengan ekstensi Live Server.
 
-Versi ini berfokus pada frontend dan tidak memerlukan PHP atau database server untuk dijalankan.
-
 ## Repository GitHub
 
 https://github.com/rafinandana123/Adewidya-Rafi-Nandana-2405101057
-
-## Catatan
-
-CarFit merupakan proyek akademik untuk memenuhi tugas UTS mata kuliah Pemrograman Web Dasar. Hasil analisis merupakan estimasi berdasarkan aturan aplikasi dan bukan keputusan persetujuan kredit dari lembaga keuangan.
