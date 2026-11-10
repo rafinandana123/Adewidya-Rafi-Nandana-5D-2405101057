@@ -41,7 +41,7 @@ Aplikasi dikembangkan menggunakan HTML, CSS, dan JavaScript dengan penyimpanan d
 ## Struktur Folder
 
 - [📁 carfit/](./carfit/) — Source code utama aplikasi CarFit.
-- [📁 screenshot/](./screenshot/) — Dokumentasi tangkapan layar hasil implementasi aplikasi.
+- [📁 screenshot/](./screenshots/) — Dokumentasi tangkapan layar hasil implementasi aplikasi.
 
 ## Cara Menjalankan Aplikasi
 
