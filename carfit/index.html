@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CarFit membantu Anda menganalisis kemampuan finansial sebelum membeli dan memiliki kendaraan.">
+    <title>CarFit — Pilih Mobil Sesuai Kemampuan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@300;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="logo" aria-label="CarFit, beranda">Car<span>Fit</span></a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+            <nav class="nav-menu" id="siteNav" aria-label="Navigasi utama">
+                <a href="index.html">Beranda</a>
+                <a href="catalog.html">Katalog Mobil</a>
+                <a href="index.html#cara-kerja">Cara Kerja</a>
+            </nav>
+            <div class="nav-action" id="navAction"></div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="kicker">Analisis kemampuan finansial</span>
+                    <h1>Pilih mobil sesuai kemampuan.</h1>
+                    <p>CarFit menghitung dana awal, cicilan, dan biaya kepemilikan bulanan, lalu membandingkannya dengan penghasilan Anda sebelum Anda membeli.</p>
+                    <div class="hero-action">
+                        <a href="profile.html" class="btn btn-primary">Hitung Kemampuan Saya</a>
+                        <a href="catalog.html" class="btn btn-secondary">Lihat Katalog Mobil</a>
+                    </div>
+                </div>
+
+                <div class="hero-stage">
+                    <div class="fan-glow" aria-hidden="true" data-depth="-0.03"></div>
+                    <div class="fan" id="heroFan" aria-label="Contoh mobil di katalog"></div>
+                    <div class="stage-gauge" id="heroMeter" data-depth="0.05"></div>
+                    <div class="stage-chip" id="heroChip"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stat-band" aria-label="Parameter perhitungan CarFit">
+            <div class="container">
+                <div class="stat-grid" data-reveal>
+                    <div class="stat"><strong><span data-count="30" data-suffix="%">30%</span></strong><span>batas rasio untuk tujuan kerja</span></div>
+                    <div class="stat"><strong><span data-count="25" data-suffix="%">25%</span></strong><span>batas rasio untuk kebutuhan keluarga</span></div>
+                    <div class="stat"><strong><span data-count="10" data-suffix="%">10%</span></strong><span>batas rasio untuk hobi dan kendaraan sekunder</span></div>
+                    <div class="stat"><strong><span data-count="8" data-suffix="%">8%</span></strong><span>bunga sederhana per tahun, tenor 12–84 bulan</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container why">
+                <div data-reveal>
+                    <span class="kicker">Mengapa CarFit</span>
+                    <h2>Harga mobil hanya sebagian dari biayanya.</h2>
+                    <p class="why-lead">Biaya bulanan setelah mobil dibeli sering menentukan apakah keuangan Anda tetap sehat. CarFit memisahkan keduanya agar terlihat jelas.</p>
+                </div>
+                <div class="cost-columns" data-reveal style="--d:.12s">
+                    <div class="cost-col">
+                        <h3>Biaya beli</h3>
+                        <ul>
+                            <li>Harga mobil<small>Tunai atau kredit</small></li>
+                            <li>Uang muka dan cicilan<small>Bunga sederhana 8% per tahun</small></li>
+                            <li>Biaya awal lain<small>Administrasi dan pengurusan</small></li>
+                        </ul>
+                    </div>
+                    <div class="cost-col">
+                        <h3>Biaya memiliki</h3>
+                        <ul>
+                            <li>Energi<small>Jarak tempuh dan konsumsi</small></li>
+                            <li>Pajak tahunan<small>Dibagi 12 bulan</small></li>
+                            <li>Servis<small>Perawatan berkala</small></li>
+                            <li>Cadangan perbaikan<small>Di luar servis rutin</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="flow-section" id="cara-kerja">
+            <div class="container">
+                <div class="section-heading" data-reveal>
+                    <span class="kicker">Cara kerja</span>
+                    <h2>Dari kondisi keuangan menuju keputusan.</h2>
+                    <p>Empat langkah untuk mengetahui apakah mobil incaran Anda sesuai.</p>
+                </div>
+                <ol class="route">
+                    <li class="route-step" data-reveal>
+                        <span class="route-no">01</span>
+                        <h3>Isi profil finansial</h3>
+                        <p>Penghasilan, pengeluaran, cicilan aktif, tabungan, dan jarak tempuh.</p>
+                    </li>
+                    <li class="route-step" data-reveal style="--d:.1s">
+                        <span class="route-no">02</span>
+                        <h3>Pilih mobil</h3>
+                        <p>Pilih kendaraan dari katalog sesuai kebutuhan Anda.</p>
+                    </li>
+                    <li class="route-step" data-reveal style="--d:.2s">
+                        <span class="route-no">03</span>
+                        <h3>Analisis kemampuan</h3>
+                        <p>Dana awal, cicilan, dan biaya kepemilikan per bulan dihitung.</p>
+                    </li>
+                    <li class="route-step" data-reveal style="--d:.3s">
+                        <span class="route-no">04</span>
+                        <h3>Lihat hasil</h3>
+                        <p>Sesuai, Perlu Pertimbangan, atau Belum Sesuai.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <div class="cta-card" data-reveal>
+                    <svg class="cta-car" viewBox="0 0 400 160" aria-hidden="true"><use href="#car"/></svg>
+                    <h2>Sudah punya mobil incaran?</h2>
+                    <p>Cek dulu apakah sesuai dengan kemampuan finansial Anda sebelum memutuskan.</p>
+                    <div class="hero-action">
+                        <a href="profile.html" class="btn btn-primary">Mulai Analisis</a>
+                        <a href="catalog.html" class="btn btn-secondary">Lihat Katalog</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-main">
+            <div>
+                <a href="index.html" class="logo" aria-label="CarFit, beranda">Car<span>Fit</span></a>
+                <p>Alat bantu menilai apakah sebuah mobil sesuai dengan kemampuan finansial Anda, dari dana awal sampai biaya bulanan.</p>
+            </div>
+            <div>
+                <h4>Navigasi</h4>
+                <div class="footer-links">
+                    <a href="index.html">Beranda</a>
+                    <a href="catalog.html">Katalog Mobil</a>
+                    <a href="index.html#cara-kerja">Cara Kerja</a>
+                    <a href="profile.html">Profil Finansial</a>
+                </div>
+            </div>
+            <div>
+                <h4>Kontak</h4>
+                <address class="footer-contact">
+                    <div><span>Alamat</span>Jl. Setia Budi No. 85</div>
+                    <div><span>Telepon</span><a href="tel:+62351462986">(0351) 462986</a></div>
+                    <div><span>Email</span>carfirprojet@unipma.com</div>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container"><p>© 2026 CarFit. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

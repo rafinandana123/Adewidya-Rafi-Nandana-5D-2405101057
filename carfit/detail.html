@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lihat spesifikasi, harga, dan estimasi biaya kepemilikan mobil melalui CarFit.">
+    <title>Detail Mobil | CarFit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@300;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="logo" aria-label="CarFit, beranda">Car<span>Fit</span></a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+            <nav class="nav-menu" id="siteNav" aria-label="Navigasi utama">
+                <a href="index.html">Beranda</a>
+                <a href="catalog.html">Katalog Mobil</a>
+                <a href="index.html#cara-kerja">Cara Kerja</a>
+            </nav>
+            <div class="nav-action" id="navAction"></div>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="catalog.html">Katalog Mobil</a>
+                <span>/</span>
+                <span id="breadcrumbCar">Detail Mobil</span>
+            </div>
+        </div>
+
+        <section class="detail-section">
+            <div class="container">
+                <div class="detail-layout">
+                    <div class="detail-image" id="detailImage"></div>
+                    <div class="detail-info">
+                        <span class="detail-brand"></span>
+                        <h1></h1>
+                        <p class="detail-meta"></p>
+                        <div class="detail-price"></div>
+                        <p class="detail-description"></p>
+                        <div class="detail-actions">
+                            <a href="analysis.html" class="btn btn-primary">Analisis Kemampuan Saya</a>
+                            <a href="catalog.html" class="btn btn-secondary">Kembali ke Katalog</a>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="specification-section">
+                    <div class="section-heading">
+                        <h2>Spesifikasi mobil</h2>
+                        <p>Data ini menjadi dasar estimasi biaya pembelian dan kepemilikan.</p>
+                    </div>
+                    <div class="specification-grid"></div>
+                </section>
+
+                <section class="ownership-section">
+                    <div class="section-heading">
+                        <h2>CarFit tidak hanya melihat harga</h2>
+                        <p>Biaya membeli dan biaya memiliki dihitung terpisah agar kemampuan Anda terlihat jelas.</p>
+                    </div>
+                    <div class="ownership-grid">
+                        <article class="ownership-card">
+                            <h3>Energi</h3>
+                            <p>Mengikuti jarak tempuh, konsumsi kendaraan, dan harga energi.</p>
+                            <div class="ownership-formula">Jarak bulanan ÷ konsumsi × harga energi</div>
+                        </article>
+                        <article class="ownership-card">
+                            <h3>Pajak</h3>
+                            <p>Pajak tahunan dibagi menjadi pengeluaran bulanan.</p>
+                            <div class="ownership-formula">Pajak tahunan ÷ 12</div>
+                        </article>
+                        <article class="ownership-card">
+                            <h3>Servis</h3>
+                            <p>Perawatan berkala dihitung sebagai pengeluaran rutin.</p>
+                            <div class="ownership-formula">Servis tahunan ÷ 12</div>
+                        </article>
+                        <article class="ownership-card">
+                            <h3>Cadangan perbaikan</h3>
+                            <p>Dana untuk perbaikan di luar perawatan rutin.</p>
+                            <div class="ownership-formula">Cadangan tahunan ÷ 12</div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="detail-cta">
+                    <div class="quick-action">
+                        <div>
+                            <h2>Apakah mobil ini sesuai kemampuan Anda?</h2>
+                            <p>Masukkan kondisi keuangan dan metode pembelian untuk mendapatkan hasil berdasarkan aturan CarFit.</p>
+                        </div>
+                        <a href="analysis.html" class="btn btn-primary">Mulai Analisis</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-main">
+            <div>
+                <a href="index.html" class="logo" aria-label="CarFit, beranda">Car<span>Fit</span></a>
+                <p>Alat bantu menilai apakah sebuah mobil sesuai dengan kemampuan finansial Anda, dari dana awal sampai biaya bulanan.</p>
+            </div>
+            <div>
+                <h4>Navigasi</h4>
+                <div class="footer-links">
+                    <a href="index.html">Beranda</a>
+                    <a href="catalog.html">Katalog Mobil</a>
+                    <a href="index.html#cara-kerja">Cara Kerja</a>
+                    <a href="profile.html">Profil Finansial</a>
+                </div>
+            </div>
+            <div>
+                <h4>Kontak</h4>
+                <address class="footer-contact">
+                    <div><span>Alamat</span>Jl. Setia Budi No. 85</div>
+                    <div><span>Telepon</span><a href="tel:+62351462986">(0351) 462986</a></div>
+                    <div><span>Email</span>carfirprojet@unipma.com</div>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container"><p>© 2026 CarFit. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

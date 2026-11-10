@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analisis kemampuan finansial untuk membeli dan memiliki mobil.">
+    <title>Analisis Kemampuan | CarFit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@300;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-access="user">
+
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="logo" aria-label="CarFit, beranda">Car<span>Fit</span></a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+            <nav class="nav-menu" id="siteNav" aria-label="Navigasi utama">
+                <a href="index.html">Beranda</a>
+                <a href="catalog.html">Katalog Mobil</a>
+                <a href="index.html#cara-kerja">Cara Kerja</a>
+            </nav>
+            <div class="nav-action" id="navAction"></div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-header ph-dark">
+            <svg class="ph-silhouette" viewBox="0 0 400 160" aria-hidden="true"><use href="#car"/></svg>
+            <div class="container">
+                <h1>Apakah mobil ini sesuai kemampuan Anda?</h1>
+                <p>CarFit membandingkan kondisi finansial Anda dengan biaya awal dan biaya kepemilikan kendaraan.</p>
+            </div>
+        </section>
+
+        <section class="analysis-section">
+            <div class="container">
+                <ol class="stepper" aria-label="Tahapan analisis">
+                    <li class="done"><span>1</span>Data finansial</li>
+                    <li class="done"><span>2</span>Pilih mobil</li>
+                    <li class="active"><span>3</span>Metode dan penggunaan</li>
+                    <li><span>4</span>Hasil</li>
+                </ol>
+
+                <div class="analysis-layout">
+                    <div class="selected-car-card"></div>
+
+                    <div class="analysis-form-card">
+                        <div class="analysis-form-header">
+                            <h2>Pengaturan analisis</h2>
+                            <p>Pastikan data finansial dan rencana pembelian Anda sudah sesuai.</p>
+                        </div>
+
+                        <p class="notice" id="profileWarning" hidden>
+                            Profil finansial belum disimpan. <a href="profile.html">Isi profil dulu</a> agar hasil sesuai kondisi Anda.
+                        </p>
+
+                        <form id="analysisForm">
+                            <div class="analysis-data">
+                                <div class="analysis-data-row"><span>Penghasilan bersih</span><strong id="analysisIncome"></strong></div>
+                                <div class="analysis-data-row"><span>Pengeluaran rutin</span><strong id="analysisExpenses"></strong></div>
+                                <div class="analysis-data-row"><span>Cicilan aktif</span><strong id="analysisInstallments"></strong></div>
+                                <div class="analysis-data-row analysis-available"><span>Pendapatan tersedia</span><strong id="analysisAvailable"></strong></div>
+                            </div>
+
+                            <div class="analysis-form-group">
+                                <label>Metode pembelian</label>
+                                <div class="analysis-options">
+                                    <label class="analysis-option"><input type="radio" name="method" value="cash"><span>Tunai</span></label>
+                                    <label class="analysis-option"><input type="radio" name="method" value="credit" checked><span>Kredit</span></label>
+                                </div>
+                            </div>
+
+                            <div class="analysis-credit" id="creditFields">
+                                <div class="analysis-form-grid">
+                                    <div class="analysis-form-group">
+                                        <label for="dp">Uang muka (DP)</label>
+                                        <input type="number" id="dp" name="dp" value="30000000" min="0" step="1">
+                                    </div>
+                                    <div class="analysis-form-group">
+                                        <label for="tenor">Tenor kredit</label>
+                                        <div class="analysis-input-unit">
+                                            <input type="number" id="tenor" name="tenor" value="48" min="12" max="84" step="12">
+                                            <span>bulan</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <small>Simulasi memakai bunga sederhana 8% per tahun.</small>
+                            </div>
+
+                            <div class="analysis-form-group">
+                                <label for="monthly-distance">Jarak tempuh per bulan</label>
+                                <div class="analysis-input-unit">
+                                    <input type="number" id="monthly-distance" name="monthly_distance" value="1000" min="0" step="1" required>
+                                    <span>km</span>
+                                </div>
+                                <small>Dipakai untuk memperkirakan biaya energi setiap bulan.</small>
+                            </div>
+
+                            <div class="analysis-form-group">
+                                <label for="purpose">Tujuan penggunaan</label>
+                                <select id="purpose" name="purpose" required>
+                                    <option value="kerja">Kerja</option>
+                                    <option value="keluarga">Keluarga</option>
+                                    <option value="hobi">Hobi / kendaraan sekunder</option>
+                                </select>
+                                <small>Batas rasio beban kendaraan: kerja 30%, keluarga 25%, hobi 10% dari penghasilan bersih. Ini parameter kebijakan internal CarFit, bukan standar OJK/BI.</small>
+                            </div>
+
+                            <div class="analysis-actions">
+                                <a href="dashboard.html" class="btn btn-secondary">Kembali</a>
+                                <button type="submit" id="analyzeButton" class="btn btn-primary">Hitung Kemampuan</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="analysis-info-section">
+            <div class="container">
+                <div class="analysis-info">
+                    <div><h2>Apa yang dihitung CarFit?</h2></div>
+                    <div class="analysis-info-list">
+                        <div class="analysis-info-item"><strong>1. Dana awal</strong><p>Membandingkan tabungan dengan kebutuhan dana awal pembelian tunai atau kredit.</p></div>
+                        <div class="analysis-info-item"><strong>2. Biaya kepemilikan</strong><p>Memperkirakan biaya energi, pajak, servis, dan dana cadangan perbaikan.</p></div>
+                        <div class="analysis-info-item"><strong>3. Kemampuan bulanan</strong><p>Memeriksa batas beban kendaraan dan sisa uang setelah pengeluaran rutin, cicilan aktif, serta biaya kendaraan.</p></div>
+                        <div class="analysis-info-item"><strong>4. Status kelayakan</strong><p>Menentukan status Sesuai, Perlu Pertimbangan, atau Belum Sesuai berdasarkan aturan CarFit.</p></div>
+                        <div class="analysis-info-item"><strong>Catatan metodologi</strong><p>Rasio beban kendaraan = (total beban kendaraan bulanan ÷ penghasilan bersih) × 100%. Batas kerja 30%, keluarga 25%, dan hobi 10% adalah parameter kebijakan internal CarFit untuk simulasi, bukan standar OJK atau BI, dan bukan Debt Service Ratio (DSR).</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-main">
+            <div>
+                <a href="index.html" class="logo" aria-label="CarFit, beranda">Car<span>Fit</span></a>
+                <p>Alat bantu menilai apakah sebuah mobil sesuai dengan kemampuan finansial Anda, dari dana awal sampai biaya bulanan.</p>
+            </div>
+            <div>
+                <h4>Navigasi</h4>
+                <div class="footer-links">
+                    <a href="index.html">Beranda</a>
+                    <a href="catalog.html">Katalog Mobil</a>
+                    <a href="index.html#cara-kerja">Cara Kerja</a>
+                    <a href="profile.html">Profil Finansial</a>
+                </div>
+            </div>
+            <div>
+                <h4>Kontak</h4>
+                <address class="footer-contact">
+                    <div><span>Alamat</span>Jl. Setia Budi No. 85</div>
+                    <div><span>Telepon</span><a href="tel:+62351462986">(0351) 462986</a></div>
+                    <div><span>Email</span>carfirprojet@unipma.com</div>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container"><p>© 2026 CarFit. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

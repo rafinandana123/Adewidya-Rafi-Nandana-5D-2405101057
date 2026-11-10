@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Isi profil finansial untuk menghitung kemampuan membeli kendaraan.">
+    <title>Profil Finansial | CarFit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@300;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-access="user">
+
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="logo" aria-label="CarFit, beranda">Car<span>Fit</span></a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+            <nav class="nav-menu" id="siteNav" aria-label="Navigasi utama">
+                <a href="index.html">Beranda</a>
+                <a href="catalog.html">Katalog Mobil</a>
+                <a href="index.html#cara-kerja">Cara Kerja</a>
+            </nav>
+            <div class="nav-action" id="navAction"></div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-header ph-car">
+            <svg class="ph-silhouette" viewBox="0 0 400 160" aria-hidden="true"><use href="#car"/></svg>
+            <div class="container">
+                <h1>Masukkan kondisi keuangan Anda</h1>
+                <p>Data ini dipakai CarFit untuk menghitung kemampuan membeli dan memiliki kendaraan.</p>
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <div class="container">
+                <form class="profile-form" id="profileForm">
+
+                    <div class="form-card">
+                        <div class="form-card-header" data-step="1">
+                            <h2>Kondisi keuangan bulanan</h2>
+                            <p>Isi kondisi keuangan rutin Anda setiap bulan.</p>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="income">Penghasilan bersih / bulan</label>
+                                <input type="number" id="income" name="income" placeholder="Contoh: 8000000" min="1" step="1" required>
+                                <small>Penghasilan setelah pajak dan potongan. Gunakan penghasilan pribadi yang benar-benar Anda terima setiap bulan.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="expenses">Pengeluaran rutin / bulan</label>
+                                <input type="number" id="expenses" name="expenses" placeholder="Contoh: 3000000" min="0" step="1" required>
+                                <small>Makan, tempat tinggal, transportasi, dan kebutuhan rutin lain.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="installments">Cicilan berjalan / bulan</label>
+                                <input type="number" id="installments" name="installments" placeholder="Contoh: 500000" min="0" step="1" value="0" required>
+                                <small>Total cicilan yang masih dibayar setiap bulan.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="savings">Tabungan saat ini</label>
+                                <input type="number" id="savings" name="savings" placeholder="Contoh: 40000000" min="0" step="1" required>
+                                <small>Dana yang tersedia untuk DP atau pembelian tunai serta biaya awal.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <div class="form-card-header" data-step="2">
+                            <h2>Kebutuhan penggunaan</h2>
+                            <p>Tujuan penggunaan menentukan batas beban kendaraan.</p>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="dependents">Jumlah tanggungan keluarga</label>
+                                <input type="number" id="dependents" name="dependents" placeholder="Contoh: 2" min="0" step="1" value="0" required>
+                                <small>Hanya dicatat sebagai informasi pendukung; belum memengaruhi perhitungan.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="distance">Jarak perjalanan / bulan</label>
+                                <div class="input-unit">
+                                    <input type="number" id="distance" name="distance" placeholder="Contoh: 1000" min="0" step="1" required>
+                                    <span>km</span>
+                                </div>
+                                <small>Perkiraan total jarak tempuh kendaraan setiap bulan.</small>
+                            </div>
+                            <div class="form-group form-full">
+                                <label>Tujuan penggunaan mobil</label>
+                                <div class="option-grid">
+                                <label class="option-card">
+                                    <input type="radio" name="purpose" value="kerja" required>
+                                    <span class="option-content"><strong>Kerja</strong><small>Menunjang mobilitas dan aktivitas produktif. Batas rasio 30%.</small></span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="purpose" value="keluarga">
+                                    <span class="option-content"><strong>Keluarga</strong><small>Kebutuhan rumah tangga dan mobilitas keluarga. Batas rasio 25%.</small></span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="purpose" value="hobi">
+                                    <span class="option-content"><strong>Hobi</strong><small>Kebutuhan nonprimer atau kendaraan sekunder. Batas rasio 10%.</small></span>
+                                </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <div class="form-card-header" data-step="3">
+                            <h2>Rencana pembelian</h2>
+                            <p>Tentukan metode pembelian yang ingin dianalisis.</p>
+                        </div>
+                        <div class="form-group">
+                            <label>Metode pembelian</label>
+                            <div class="option-grid option-grid-small">
+                                <label class="option-card">
+                                    <input type="radio" name="purchase_method" value="cash" required>
+                                    <span class="option-content"><strong>Tunai</strong><small>Membayar penuh dari dana yang tersedia.</small></span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="purchase_method" value="credit">
+                                    <span class="option-content"><strong>Kredit</strong><small>DP dan cicilan bulanan.</small></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="credit-options" id="creditOptions" hidden>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="down_payment">Uang muka (DP)</label>
+                                    <input type="number" id="down_payment" name="down_payment" placeholder="Contoh: 30000000" min="0" step="1" value="0" disabled>
+                                    <small>Jumlah uang muka yang direncanakan.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tenor">Tenor kredit</label>
+                                    <div class="input-unit">
+                                        <input type="number" id="tenor" name="tenor" placeholder="Contoh: 48" min="12" max="84" step="12" value="48" disabled>
+                                        <span>bulan</span>
+                                    </div>
+                                    <small>Tenor 12–84 bulan. Simulasi memakai bunga sederhana 8% per tahun.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <a href="dashboard.html" class="btn btn-secondary">Batal</a>
+                        <button type="submit" class="btn btn-primary" id="saveProfileButton">Simpan Profil Finansial</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-main">
+            <div>
+                <a href="index.html" class="logo" aria-label="CarFit, beranda">Car<span>Fit</span></a>
+                <p>Alat bantu menilai apakah sebuah mobil sesuai dengan kemampuan finansial Anda, dari dana awal sampai biaya bulanan.</p>
+            </div>
+            <div>
+                <h4>Navigasi</h4>
+                <div class="footer-links">
+                    <a href="index.html">Beranda</a>
+                    <a href="catalog.html">Katalog Mobil</a>
+                    <a href="index.html#cara-kerja">Cara Kerja</a>
+                    <a href="profile.html">Profil Finansial</a>
+                </div>
+            </div>
+            <div>
+                <h4>Kontak</h4>
+                <address class="footer-contact">
+                    <div><span>Alamat</span>Jl. Setia Budi No. 85</div>
+                    <div><span>Telepon</span><a href="tel:+62351462986">(0351) 462986</a></div>
+                    <div><span>Email</span>carfirprojet@unipma.com</div>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container"><p>© 2026 CarFit. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

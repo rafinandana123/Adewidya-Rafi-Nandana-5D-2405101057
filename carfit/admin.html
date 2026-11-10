@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel admin CarFit untuk mengelola data mobil.">
+    <title>Admin | CarFit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@300;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-access="admin">
+
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="logo" aria-label="CarFit, beranda">Car<span>Fit</span></a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+            <nav class="nav-menu" id="siteNav" aria-label="Navigasi utama">
+                <a href="index.html">Beranda</a>
+                <a href="catalog.html">Katalog Mobil</a>
+                <a href="index.html#cara-kerja">Cara Kerja</a>
+            </nav>
+            <div class="nav-action" id="navAction"></div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-header ph-compact">
+            
+            <div class="container">
+                <h1>Kelola data mobil</h1>
+                <p>Atur harga, konsumsi energi, pajak, servis, dan biaya perbaikan. Perubahan dipakai oleh katalog, halaman detail, dan analisis.</p>
+            </div>
+        </section>
+
+        <div class="container admin-main">
+            <section class="admin-stats">
+                <div class="finance-card"><span class="finance-label">Total mobil</span><strong id="statCars">0</strong><small>Data master</small></div>
+                <div class="finance-card"><span class="finance-label">Jumlah merek</span><strong id="statBrands">0</strong><small>Dikelompokkan otomatis</small></div>
+                <div class="finance-card"><span class="finance-label">Rata-rata harga</span><strong id="statAvg">Rp0</strong><small>Seluruh mobil</small></div>
+                <div class="finance-card finance-highlight"><span class="finance-label">Analisis tersimpan</span><strong id="statHistory">0</strong><small>Riwayat di browser ini</small></div>
+            </section>
+
+            <section class="admin-panel">
+                <div class="admin-toolbar">
+                    <h2>Data mobil per merek</h2>
+                    <div class="admin-toolbar-actions">
+                        <input type="search" id="carSearch" placeholder="Cari merek, model, tahun..." aria-label="Cari mobil">
+                        <select id="brandFilter" aria-label="Filter merek"><option value="">Semua merek</option></select>
+                        <button type="button" class="btn btn-secondary" id="resetCars">Reset Data Awal</button>
+                        <button type="button" class="btn btn-primary" id="addCar">+ Tambah Mobil</button>
+                    </div>
+                </div>
+                <div id="carGroups"></div>
+                <small class="admin-note">Pajak, servis, dan cadangan perbaikan dihitung per tahun, lalu dibagi 12 untuk biaya bulanan.</small>
+            </section>
+
+            <section class="admin-panel">
+                <div class="admin-toolbar">
+                    <h2>Harga rata-rata per merek</h2>
+                </div>
+                <div class="bar-chart" id="brandChart"></div>
+            </section>
+
+            <section class="admin-panel">
+                <div class="admin-toolbar">
+                    <h2>Kelola merek</h2>
+                    <form class="brand-add" id="addBrandForm">
+                        <input type="text" id="newBrand" placeholder="Tambah merek baru…" aria-label="Nama merek baru" autocomplete="off">
+                        <button type="submit" class="btn btn-primary">Tambah</button>
+                    </form>
+                </div>
+                <div class="table-wrap">
+                    <table class="admin-table">
+                        <thead><tr><th>Merek</th><th>Jumlah mobil</th><th>Sumber</th><th>Aksi</th></tr></thead>
+                        <tbody id="brandRows"></tbody>
+                    </table>
+                </div>
+                <small class="admin-note">Merek bawaan selalu tersedia di dropdown. Mengubah nama merek ikut memperbarui semua mobil yang memakainya, dan merek yang masih dipakai mobil tidak bisa dihapus.</small>
+            </section>
+
+            <section class="admin-panel">
+                <div class="admin-toolbar">
+                    <h2>Riwayat analisis terbaru</h2>
+                    <button type="button" class="btn btn-danger" id="clearHistory">Hapus Riwayat</button>
+                </div>
+                <div class="table-wrap">
+                    <table class="admin-table">
+                        <thead><tr><th>Waktu</th><th>Mobil</th><th>Harga saat analisis</th><th>Beban bulanan</th><th>Status</th></tr></thead>
+                        <tbody id="historyTable"></tbody>
+                    </table>
+                </div>
+                <small class="admin-note">Riwayat menyimpan salinan harga dan biaya saat analisis, sehingga perubahan data mobil tidak mengubah hasil lama.</small>
+            </section>
+        </div>
+
+        <dialog id="carDialog">
+            <h2 id="dialogTitle">Tambah mobil</h2>
+            <form id="carForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="brand">Merek</label>
+                        <select id="brand" name="brand" required><option value="">Pilih merek…</option></select>
+                    </div>
+                    <div class="form-group" id="brandOtherWrap" hidden>
+                        <label for="brandOther">Nama merek baru</label>
+                        <input type="text" id="brandOther" name="brandOther" placeholder="Contoh: Subaru" autocomplete="off">
+                        <small>Setelah disimpan, merek ini otomatis tersedia di dropdown.</small>
+                    </div>
+                <div class="form-group">
+                    <label for="name">Model</label>
+                    <input id="name" name="name" type="text" placeholder="Avanza 1.3 G M/T" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Tahun</label>
+                    <input id="year" name="year" type="number" min="1990" max="2100" required>
+                </div>
+                    <div class="form-group">
+                        <label for="cond">Kondisi</label>
+                        <select id="cond" name="cond"><option value="Bekas">Bekas</option><option value="Baru">Baru</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="energy">Jenis energi</label>
+                        <select id="energy" name="energy"><option value="Bensin">Bensin</option><option value="Diesel">Diesel</option><option value="Listrik">Listrik</option></select>
+                    </div>
+                    <div class="form-group photo-form-group">
+                        <label for="carImage">Foto mobil</label>
+                        <input type="file" id="carImage" name="carImage" accept="image/*">
+                        <img id="carImagePreview" src="" alt="Pratinjau foto mobil" hidden>
+                    </div>
+                <div class="form-group">
+                    <label for="kmpl">Konsumsi (km/L atau km/kWh)</label>
+                    <input id="kmpl" name="kmpl" type="number" min="0.1" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Harga mobil (Rp)</label>
+                    <input id="price" name="price" type="number" min="1" step="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="energyPrice">Harga energi (Rp per liter/kWh)</label>
+                    <input id="energyPrice" name="energyPrice" type="number" min="0" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="tax">Pajak tahunan (Rp)</label>
+                    <input id="tax" name="tax" type="number" min="0" step="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Servis tahunan (Rp)</label>
+                    <input id="service" name="service" type="number" min="0" step="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="reserve">Dana perbaikan tahunan (Rp)</label>
+                    <input id="reserve" name="reserve" type="number" min="0" step="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="initial">Biaya awal lain (Rp)</label>
+                    <input id="initial" name="initial" type="number" min="0" step="1" required>
+                </div>
+                </div>
+                <div class="admin-form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelDialog">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </dialog>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-main">
+            <div>
+                <a href="index.html" class="logo" aria-label="CarFit, beranda">Car<span>Fit</span></a>
+                <p>Alat bantu menilai apakah sebuah mobil sesuai dengan kemampuan finansial Anda, dari dana awal sampai biaya bulanan.</p>
+            </div>
+            <div>
+                <h4>Navigasi</h4>
+                <div class="footer-links">
+                    <a href="index.html">Beranda</a>
+                    <a href="catalog.html">Katalog Mobil</a>
+                    <a href="index.html#cara-kerja">Cara Kerja</a>
+                    <a href="profile.html">Profil Finansial</a>
+                </div>
+            </div>
+            <div>
+                <h4>Kontak</h4>
+                <address class="footer-contact">
+                    <div><span>Alamat</span>Jl. Setia Budi No. 85</div>
+                    <div><span>Telepon</span><a href="tel:+62351462986">(0351) 462986</a></div>
+                    <div><span>Email</span>carfirprojet@unipma.com</div>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container"><p>© 2026 CarFit. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
