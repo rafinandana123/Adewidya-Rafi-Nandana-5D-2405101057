@@ -69,7 +69,13 @@
     { id: 'avanza-2020', brand: 'Toyota', name: 'Avanza 1.3 G M/T', year: 2020, cond: 'Bekas', energy: 'Bensin', price: 150e6, kmpl: 15, energyPrice: 10000, tax: 2.5e6, service: 1.5e6, reserve: 0.8e6, initial: 3e6 },
     { id: 'brio-2021', brand: 'Honda', name: 'Brio Satya 1.2', year: 2021, cond: 'Bekas', energy: 'Bensin', price: 135e6, kmpl: 18, energyPrice: 10000, tax: 2.2e6, service: 1.3e6, reserve: 0.7e6, initial: 3e6 },
     { id: 'ertiga-2020', brand: 'Suzuki', name: 'Ertiga 1.5 GX', year: 2020, cond: 'Bekas', energy: 'Bensin', price: 145e6, kmpl: 16, energyPrice: 10000, tax: 2.8e6, service: 1.6e6, reserve: 0.8e6, initial: 3e6 },
-    { id: 'xenia-2019', brand: 'Daihatsu', name: 'Xenia 1.3 R', year: 2019, cond: 'Bekas', energy: 'Bensin', price: 125e6, kmpl: 15, energyPrice: 10000, tax: 2.2e6, service: 1.4e6, reserve: 0.8e6, initial: 3e6 }
+    { id: 'xenia-2019', brand: 'Daihatsu', name: 'Xenia 1.3 R', year: 2019, cond: 'Bekas', energy: 'Bensin', price: 125e6, kmpl: 15, energyPrice: 10000, tax: 2.2e6, service: 1.4e6, reserve: 0.8e6, initial: 3e6 },
+    { id: 'agya-2022', brand: 'Toyota', name: 'Agya 1.2 G M/T', year: 2022, cond: 'Bekas', energy: 'Bensin', price: 115e6, kmpl: 19, energyPrice: 10000, tax: 1.9e6, service: 1.1e6, reserve: 0.6e6, initial: 3e6 },
+    { id: 'ayla-2024', brand: 'Daihatsu', name: 'Ayla 1.0 X', year: 2024, cond: 'Baru', energy: 'Bensin', price: 170e6, kmpl: 21, energyPrice: 10000, tax: 2e6, service: 1e6, reserve: 0.5e6, initial: 12e6 },
+    { id: 'jazz-2018', brand: 'Honda', name: 'Jazz RS CVT', year: 2018, cond: 'Bekas', energy: 'Bensin', price: 190e6, kmpl: 14, energyPrice: 10000, tax: 3.2e6, service: 1.9e6, reserve: 1.2e6, initial: 3e6 },
+    { id: 'xpander-2021', brand: 'Mitsubishi', name: 'Xpander GLS A/T', year: 2021, cond: 'Bekas', energy: 'Bensin', price: 220e6, kmpl: 14, energyPrice: 10000, tax: 3.6e6, service: 2e6, reserve: 1.2e6, initial: 3.5e6 },
+    { id: 'innova-2019', brand: 'Toyota', name: 'Innova Reborn 2.4 G Diesel', year: 2019, cond: 'Bekas', energy: 'Diesel', price: 290e6, kmpl: 12, energyPrice: 13500, tax: 4.8e6, service: 2.6e6, reserve: 1.6e6, initial: 4e6 },
+    { id: 'airev-2023', brand: 'Wuling', name: 'Air EV Long Range', year: 2023, cond: 'Baru', energy: 'Listrik', price: 230e6, kmpl: 10, energyPrice: 1700, tax: 0.4e6, service: 0.9e6, reserve: 0.6e6, initial: 8e6 }
   ];
 
   /* ---- Merek ---- */
